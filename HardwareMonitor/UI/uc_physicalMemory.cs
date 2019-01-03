@@ -21,6 +21,14 @@ namespace HardwareMonitor.UI
             Hardware.PhysicalMemory mem = new Hardware.PhysicalMemory();
             mem.Retrieve();
             Hardware.MemoryBank memory0 = mem.MemoryBanks[0];
+            
+            
+
+
+
+
+
+
 
             for (int i = 0; i < mem.MemoryBanks.Count(); i++)
             {
@@ -31,32 +39,32 @@ namespace HardwareMonitor.UI
                 };
                 tab_memory.TabPages.Add(myTabPage);
 
-				Hardware.MemoryBank currentBank = mem.MemoryBanks[i];
+                Hardware.MemoryBank currentBank = mem.MemoryBanks[i];
 
-				Label lb_bank = new Label
+                Label lb_bank = new Label
                 {
                     AutoSize = true,
                     Text = "Bank:",
                     Location = new Point(15, 15)
                 };
-				Label lb_bankValue = new Label
-				{
-					AutoSize = true,
-					Text = currentBank.BankLabel,
-					Location = new Point( 165, 15 )
-				};
-				Label lb_capacity = new Label
+                Label lb_bankValue = new Label
+                {
+                    AutoSize = true,
+                    Text = currentBank.BankLabel,
+                    Location = new Point(165, 15)
+                };
+                Label lb_capacity = new Label
                 {
                     AutoSize = true,
                     Text = "Capacity:",
                     Location = new Point(15, 45)
                 };
-				Label lb_capacityValue = new Label
-				{
-					AutoSize = true,
-					Text = ( currentBank.Capacity / bytesInMegabyte ).ToString() + " MB",
-					Location = new Point( 165, 45 )
-				};
+                Label lb_capacityValue = new Label
+                {
+                    AutoSize = true,
+                    Text = (currentBank.Capacity / bytesInMegabyte).ToString() + " MB",
+                    Location = new Point(165, 45)
+                };
                 Label lb_clspeed = new Label
                 {
                     AutoSize = true,
@@ -201,6 +209,11 @@ namespace HardwareMonitor.UI
                     Text = currentBank.DataWidth.ToString(),
                     Location = new Point(165, 405)
                 };
+                PictureBox pbox_manufact = new PictureBox
+                {
+
+                };
+
 
                 myTabPage.Controls.Add(lb_bank);
 				myTabPage.Controls.Add(lb_bankValue);

@@ -4,7 +4,7 @@ using System.Management;
 
 namespace HardwareMonitor.Hardware
 {
-        public sealed class  Motherboard
+        public sealed class  Motherboard : IHardware
     {
         public string Caption { get; private set; }
         public string[] ConfigOptions { get; private set; }

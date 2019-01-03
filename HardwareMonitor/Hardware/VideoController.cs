@@ -5,7 +5,7 @@ using System.Management;
 
 namespace HardwareMonitor.Hardware
 {
-    public class VideoCard
+    public class VideoCard  
     {
         public enum Architecture : ushort { Other = 1, Unknown, CGA, EGA, VGA, SVGA, MDA, HGC, MCGA, _8514A, _XGA, Linear_Frame_Buffer, PC_98 = 160 }
         public enum MemoryType : ushort { Other = 1, Unknown, VRAM, DRAM, SRAM, WRAM, EDO_RAM, Burst_Synchronous_DRAM, Pipelined_Burst_SRAM, CDRAM, _3DRAM, SDRAM, SGRAM }
@@ -50,9 +50,35 @@ namespace HardwareMonitor.Hardware
         public MemoryType VideoMemoryType { get;  set; }
         public string VideoModeDescription { get;  set; }
         public string VideoProcessor { get;  set; }
+
+        public string GetManufacturer(string _manufact)
+        {
+            _manufact = _manufact.ToLower();
+            string intel = "intel";
+            string amd = "amd";
+            string nvidia = "nvidia";
+
+            if (_manufact.IndexOf(intel) > -1)
+            {
+                return intel;
+            }
+            else if (_manufact.IndexOf(amd) > -1)
+            {
+                return amd;
+            }
+            else if (_manufact.IndexOf(nvidia) > -1)
+            {
+                return nvidia;
+            }
+            else
+            {
+                return "videocard";
+            }
+
+        }
     }
 
-    public sealed class VideoController
+    public sealed class VideoController : IHardware
     {
         public List<VideoCard> VideoCards { get; private set; }
 

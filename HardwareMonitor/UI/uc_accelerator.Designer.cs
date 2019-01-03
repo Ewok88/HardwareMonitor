@@ -44,7 +44,7 @@
             this.bunifuProgressBar2 = new Bunifu.Framework.UI.BunifuProgressBar();
             this.bt_proc_info = new System.Windows.Forms.Button();
             this.timer_uc_acc = new System.Windows.Forms.Timer(this.components);
-            this.lb_RAM_aval = new System.Windows.Forms.Label();
+            this.lb_RAM_use = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lb_CPU
@@ -263,14 +263,14 @@
             this.timer_uc_acc.Interval = 1000;
             this.timer_uc_acc.Tick += new System.EventHandler(this.timer_uc_acc_Tick);
             // 
-            // lb_RAM_aval
+            // lb_RAM_use
             // 
-            this.lb_RAM_aval.AutoSize = true;
-            this.lb_RAM_aval.Location = new System.Drawing.Point(47, 463);
-            this.lb_RAM_aval.Name = "lb_RAM_aval";
-            this.lb_RAM_aval.Size = new System.Drawing.Size(98, 22);
-            this.lb_RAM_aval.TabIndex = 4;
-            this.lb_RAM_aval.Text = "Available";
+            this.lb_RAM_use.AutoSize = true;
+            this.lb_RAM_use.Location = new System.Drawing.Point(65, 463);
+            this.lb_RAM_use.Name = "lb_RAM_use";
+            this.lb_RAM_use.Size = new System.Drawing.Size(63, 22);
+            this.lb_RAM_use.TabIndex = 4;
+            this.lb_RAM_use.Text = "In use";
             // 
             // uc_accelerator
             // 
@@ -280,7 +280,7 @@
             this.Controls.Add(this.bunifuProgressBar2);
             this.Controls.Add(this.bunifuProgressBar1);
             this.Controls.Add(this.lb_cpu_temperature);
-            this.Controls.Add(this.lb_RAM_aval);
+            this.Controls.Add(this.lb_RAM_use);
             this.Controls.Add(this.lb_cpu_load);
             this.Controls.Add(this.prbar_temperature);
             this.Controls.Add(this.prbar_ram_used);
@@ -316,6 +316,6 @@
         private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBar2;
         private System.Windows.Forms.Button bt_proc_info;
         private System.Windows.Forms.Timer timer_uc_acc;
-        private System.Windows.Forms.Label lb_RAM_aval;
+        private System.Windows.Forms.Label lb_RAM_use;
     }
 }

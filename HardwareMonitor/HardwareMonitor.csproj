@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hardware\IHardware.cs" />
     <Compile Include="Hardware\Motherboard.cs" />
     <Compile Include="Hardware\OperatingSystem.cs" />
     <Compile Include="Hardware\PhysicalMemory.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\uc_accelerator.resx">
       <DependentUpon>uc_accelerator.cs</DependentUpon>
@@ -161,6 +163,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UI\Picture\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\intel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nvidia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\videocard.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

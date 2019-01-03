@@ -3,7 +3,7 @@ using System.Management;
 
 namespace HardwareMonitor.Hardware
 {
-    class Processor
+    class Processor : IHardware
     {
         public enum Architecture : ushort { x86, MIPS, Alpha, PowerPC, ia64 = 6, x64 = 9}
         public enum ProcType : ushort { Other=1, Unknown, Central_Processor, Math_Processor, DSP_Processor, Video_Processor}

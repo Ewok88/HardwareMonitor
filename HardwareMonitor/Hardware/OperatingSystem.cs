@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HardwareMonitor.Hardware
 {
-    class OperatingSystem
+    class OperatingSystem : IHardware
     {
         public string BootDevice { get; private set; }
         public string BuildNumber { get; private set; }

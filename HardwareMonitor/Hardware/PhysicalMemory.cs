@@ -51,7 +51,7 @@ namespace HardwareMonitor.Hardware
     public  string Version { get;  set; }
 }
     
-    class  PhysicalMemory
+    class PhysicalMemory : IHardware
     {
         
         #region "comment"
@@ -154,5 +154,6 @@ namespace HardwareMonitor.Hardware
               
             
         }
+         
     }
 }
