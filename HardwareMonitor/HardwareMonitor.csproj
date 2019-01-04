@@ -163,9 +163,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Picture\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\amd.png" />
   </ItemGroup>
@@ -177,6 +175,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\videocard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Picture\amd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Picture\intel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Picture\nvidia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Picture\videocard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
