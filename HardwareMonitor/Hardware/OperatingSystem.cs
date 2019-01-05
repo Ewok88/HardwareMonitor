@@ -74,10 +74,6 @@ namespace HardwareMonitor.Hardware
         public string Version { get; private set; }
         public string WindowsDirectory { get; private set; }
 
-
-
-
-
         public void Retrieve()
         {
             ManagementObjectSearcher searcher =

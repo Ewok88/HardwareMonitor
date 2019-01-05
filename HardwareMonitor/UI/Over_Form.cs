@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HardwareMonitor.Hardware;
+using HardwareMonitor.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,13 +15,21 @@ namespace HardwareMonitor
 {
     public partial class Over_Form : Form
     {
+       
         PerformanceCounter perfCPU_over = new PerformanceCounter("Processor Information", "% Processor Time", "_Total");
         PerformanceCounter perfRAM_over = new PerformanceCounter("Memory", "Available MBytes");
+        const int bytesInMegabyte = 1 << 20;
         public Over_Form()
         {
-
             
+         
+
             InitializeComponent();
+            PhysicalMemory mem = new PhysicalMemory();
+            mem.Retrieve();
+            prbar_RAM.MaximumValue = (int)(mem.TotalMemory / bytesInMegabyte);
+
+
             this.StartPosition = FormStartPosition.Manual;
             //Верхний левый угол экрана
             Point pt = Screen.PrimaryScreen.WorkingArea.Location;
@@ -36,10 +46,10 @@ namespace HardwareMonitor
         private void timer1_Tick(object sender, EventArgs e)
         {
             prbar_CPU.Value = (int)perfCPU_over.NextValue();
-            prbar_CPU.Text = prbar_CPU.Value.ToString();
+          //  prbar_CPU.Text = prbar_CPU.Value.ToString();
 
-            prbar_RAM.Value = (int)perfRAM_over.NextValue();
-            prbar_RAM.Text = perfRAM_over.NextValue().ToString();
+            prbar_RAM.Value = (int)(prbar_RAM.MaximumValue - perfRAM_over.NextValue());
+            //prbar_RAM.Text = perfRAM_over.NextValue().ToString();
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)

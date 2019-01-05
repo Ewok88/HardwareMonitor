@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Hardware\IHardware.cs" />
+    <Compile Include="Hardware\LogicalController.cs" />
     <Compile Include="Hardware\Motherboard.cs" />
     <Compile Include="Hardware\OperatingSystem.cs" />
     <Compile Include="Hardware\PhysicalMemory.cs" />

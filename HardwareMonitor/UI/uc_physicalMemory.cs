@@ -22,14 +22,6 @@ namespace HardwareMonitor.UI
             mem.Retrieve();
             Hardware.MemoryBank memory0 = mem.MemoryBanks[0];
             
-            
-
-
-
-
-
-
-
             for (int i = 0; i < mem.MemoryBanks.Count(); i++)
             {
                 string title = "RAM " + i.ToString();

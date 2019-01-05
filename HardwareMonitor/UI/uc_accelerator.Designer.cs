@@ -40,11 +40,19 @@
             this.lb_proc_name = new System.Windows.Forms.Label();
             this.prbar_ram_used = new CircularProgressBar.CircularProgressBar();
             this.lb_storage = new System.Windows.Forms.Label();
-            this.bunifuProgressBar1 = new Bunifu.Framework.UI.BunifuProgressBar();
-            this.bunifuProgressBar2 = new Bunifu.Framework.UI.BunifuProgressBar();
+            this.prbar_usedSpace = new Bunifu.Framework.UI.BunifuProgressBar();
+            this.prbar_freeSpace = new Bunifu.Framework.UI.BunifuProgressBar();
             this.bt_proc_info = new System.Windows.Forms.Button();
             this.timer_uc_acc = new System.Windows.Forms.Timer(this.components);
             this.lb_RAM_use = new System.Windows.Forms.Label();
+            this.lb_freeSpace = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tab_storage = new System.Windows.Forms.TabControl();
+            this.lb_mem_used = new System.Windows.Forms.Label();
+            this.lb_mem_free = new System.Windows.Forms.Label();
+            this.lb_usedSpace = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.tabPage1.SuspendLayout();
+            this.tab_storage.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_CPU
@@ -211,38 +219,38 @@
             this.lb_storage.AutoSize = true;
             this.lb_storage.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lb_storage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_storage.Location = new System.Drawing.Point(226, 282);
+            this.lb_storage.Location = new System.Drawing.Point(225, 282);
             this.lb_storage.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lb_storage.Name = "lb_storage";
             this.lb_storage.Size = new System.Drawing.Size(118, 33);
             this.lb_storage.TabIndex = 0;
             this.lb_storage.Text = "Storage";
             // 
-            // bunifuProgressBar1
+            // prbar_usedSpace
             // 
-            this.bunifuProgressBar1.BackColor = System.Drawing.Color.Silver;
-            this.bunifuProgressBar1.BorderRadius = 5;
-            this.bunifuProgressBar1.Location = new System.Drawing.Point(233, 366);
-            this.bunifuProgressBar1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.bunifuProgressBar1.MaximumValue = 100;
-            this.bunifuProgressBar1.Name = "bunifuProgressBar1";
-            this.bunifuProgressBar1.ProgressColor = System.Drawing.Color.Teal;
-            this.bunifuProgressBar1.Size = new System.Drawing.Size(400, 40);
-            this.bunifuProgressBar1.TabIndex = 5;
-            this.bunifuProgressBar1.Value = 50;
+            this.prbar_usedSpace.BackColor = System.Drawing.Color.Silver;
+            this.prbar_usedSpace.BorderRadius = 5;
+            this.prbar_usedSpace.Location = new System.Drawing.Point(5, 30);
+            this.prbar_usedSpace.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.prbar_usedSpace.MaximumValue = 100;
+            this.prbar_usedSpace.Name = "prbar_usedSpace";
+            this.prbar_usedSpace.ProgressColor = System.Drawing.Color.Teal;
+            this.prbar_usedSpace.Size = new System.Drawing.Size(400, 30);
+            this.prbar_usedSpace.TabIndex = 5;
+            this.prbar_usedSpace.Value = 50;
             // 
-            // bunifuProgressBar2
+            // prbar_freeSpace
             // 
-            this.bunifuProgressBar2.BackColor = System.Drawing.Color.Silver;
-            this.bunifuProgressBar2.BorderRadius = 5;
-            this.bunifuProgressBar2.Location = new System.Drawing.Point(233, 418);
-            this.bunifuProgressBar2.Margin = new System.Windows.Forms.Padding(11, 8, 11, 8);
-            this.bunifuProgressBar2.MaximumValue = 100;
-            this.bunifuProgressBar2.Name = "bunifuProgressBar2";
-            this.bunifuProgressBar2.ProgressColor = System.Drawing.Color.Teal;
-            this.bunifuProgressBar2.Size = new System.Drawing.Size(400, 40);
-            this.bunifuProgressBar2.TabIndex = 5;
-            this.bunifuProgressBar2.Value = 50;
+            this.prbar_freeSpace.BackColor = System.Drawing.Color.Silver;
+            this.prbar_freeSpace.BorderRadius = 5;
+            this.prbar_freeSpace.Location = new System.Drawing.Point(5, 90);
+            this.prbar_freeSpace.Margin = new System.Windows.Forms.Padding(11, 8, 11, 8);
+            this.prbar_freeSpace.MaximumValue = 100;
+            this.prbar_freeSpace.Name = "prbar_freeSpace";
+            this.prbar_freeSpace.ProgressColor = System.Drawing.Color.Teal;
+            this.prbar_freeSpace.Size = new System.Drawing.Size(400, 30);
+            this.prbar_freeSpace.TabIndex = 5;
+            this.prbar_freeSpace.Value = 50;
             // 
             // bt_proc_info
             // 
@@ -272,13 +280,77 @@
             this.lb_RAM_use.TabIndex = 4;
             this.lb_RAM_use.Text = "In use";
             // 
+            // lb_freeSpace
+            // 
+            this.lb_freeSpace.AutoSize = true;
+            this.lb_freeSpace.BackColor = System.Drawing.Color.Transparent;
+            this.lb_freeSpace.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_freeSpace.Location = new System.Drawing.Point(405, 85);
+            this.lb_freeSpace.Name = "lb_freeSpace";
+            this.lb_freeSpace.Size = new System.Drawing.Size(47, 36);
+            this.lb_freeSpace.TabIndex = 7;
+            this.lb_freeSpace.Text = "70";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.lb_mem_free);
+            this.tabPage1.Controls.Add(this.lb_mem_used);
+            this.tabPage1.Controls.Add(this.prbar_usedSpace);
+            this.tabPage1.Controls.Add(this.lb_usedSpace);
+            this.tabPage1.Controls.Add(this.lb_freeSpace);
+            this.tabPage1.Controls.Add(this.prbar_freeSpace);
+            this.tabPage1.Location = new System.Drawing.Point(4, 31);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(491, 132);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Total";
+            // 
+            // tab_storage
+            // 
+            this.tab_storage.Controls.Add(this.tabPage1);
+            this.tab_storage.Location = new System.Drawing.Point(231, 318);
+            this.tab_storage.Name = "tab_storage";
+            this.tab_storage.SelectedIndex = 0;
+            this.tab_storage.Size = new System.Drawing.Size(499, 167);
+            this.tab_storage.TabIndex = 8;
+            // 
+            // lb_mem_used
+            // 
+            this.lb_mem_used.AutoSize = true;
+            this.lb_mem_used.Location = new System.Drawing.Point(5, 5);
+            this.lb_mem_used.Name = "lb_mem_used";
+            this.lb_mem_used.Size = new System.Drawing.Size(59, 22);
+            this.lb_mem_used.TabIndex = 8;
+            this.lb_mem_used.Text = "Used:";
+            // 
+            // lb_mem_free
+            // 
+            this.lb_mem_free.AutoSize = true;
+            this.lb_mem_free.Location = new System.Drawing.Point(5, 65);
+            this.lb_mem_free.Name = "lb_mem_free";
+            this.lb_mem_free.Size = new System.Drawing.Size(54, 22);
+            this.lb_mem_free.TabIndex = 9;
+            this.lb_mem_free.Text = "Free:";
+            // 
+            // lb_usedSpace
+            // 
+            this.lb_usedSpace.AutoSize = true;
+            this.lb_usedSpace.BackColor = System.Drawing.Color.Transparent;
+            this.lb_usedSpace.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_usedSpace.Location = new System.Drawing.Point(405, 25);
+            this.lb_usedSpace.Name = "lb_usedSpace";
+            this.lb_usedSpace.Size = new System.Drawing.Size(47, 36);
+            this.lb_usedSpace.TabIndex = 7;
+            this.lb_usedSpace.Text = "70";
+            // 
             // uc_accelerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tab_storage);
             this.Controls.Add(this.bt_proc_info);
-            this.Controls.Add(this.bunifuProgressBar2);
-            this.Controls.Add(this.bunifuProgressBar1);
             this.Controls.Add(this.lb_cpu_temperature);
             this.Controls.Add(this.lb_RAM_use);
             this.Controls.Add(this.lb_cpu_load);
@@ -294,7 +366,11 @@
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "uc_accelerator";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Size = new System.Drawing.Size(748, 656);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tab_storage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,10 +388,16 @@
         private System.Windows.Forms.Label lb_proc_name;
         private CircularProgressBar.CircularProgressBar prbar_ram_used;
         private System.Windows.Forms.Label lb_storage;
-        private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBar1;
-        private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBar2;
+        private Bunifu.Framework.UI.BunifuProgressBar prbar_usedSpace;
+        private Bunifu.Framework.UI.BunifuProgressBar prbar_freeSpace;
         private System.Windows.Forms.Button bt_proc_info;
         private System.Windows.Forms.Timer timer_uc_acc;
         private System.Windows.Forms.Label lb_RAM_use;
+        private Bunifu.Framework.UI.BunifuCustomLabel lb_freeSpace;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tab_storage;
+        private System.Windows.Forms.Label lb_mem_free;
+        private System.Windows.Forms.Label lb_mem_used;
+        private Bunifu.Framework.UI.BunifuCustomLabel lb_usedSpace;
     }
 }
