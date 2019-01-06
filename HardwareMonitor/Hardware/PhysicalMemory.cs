@@ -27,7 +27,7 @@ namespace HardwareMonitor.Hardware
             Tag = "Unknown";
             Version = "Unknown";
         }
-        public bool InfoAvailable = true;
+        
         public enum Form : ushort { Unknown, Other, SIP, DIP, ZIP, SOJ, Proprietary, SIMM, DIMM, TSOP, PGA, RIMM, SODIMM, SRIMM, SMD, SSMP, QFP, TQFP, SOIC, LCC, PLCC, BGA, FPBGA, LGA }
         public enum MemType : ushort { Unknown, Other, DRAM, Synchronous_DRAM, Cache_DRAM, EDO, EDRAM, VRAM, SRAM, RAM, ROM, Flash, EEPROM, FEPROM, EPROM, CDRAM, _3DRAM, SDRAM, SGRAM, RDRAM, DDR, DDR2, DDR2_FB_DIMM, DDR3 = 24, FBD2 }
         public enum DetailType : ushort { Reserved = 1, Other, Unknown = 4, Fast_paged = 8, Static_column = 16, Pseudo_static = 32, RAMBUS = 64, Synchronous = 128, CMOS = 256, EDO = 512, Window_DRAM = 1024, Cache_DRAM = 2048, Non_volatile = 4096 }
@@ -92,7 +92,6 @@ namespace HardwareMonitor.Hardware
                 {
                    
                     memBank.Capacity = ((ulong)(managementObject.Properties["Capacity"]?.Value ?? default(ulong)));
-                    memBank.Capacity = ((ulong)(managementObject.Properties["City"]?.Value ?? default(ulong)));
                     memBank.Attributes = ((uint)(managementObject.Properties["Attributes"]?.Value ?? default(uint)));
                     memBank.BankLabel = ((string)(managementObject.Properties["BankLabel"]?.Value));
                     memBank.Caption = ((string)(managementObject.Properties["Caption"]?.Value));
@@ -130,10 +129,7 @@ namespace HardwareMonitor.Hardware
                     memBank.Version = ((string)(managementObject.Properties["Version"]?.Value));
                     
                 }
-                catch (Exception ex)
-                {
-                     memBank.InfoAvailable = false;
-                }
+                catch (Exception ex){}
 
                 finally
                 {

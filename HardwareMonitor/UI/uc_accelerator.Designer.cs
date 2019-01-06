@@ -40,17 +40,18 @@
             this.lb_proc_name = new System.Windows.Forms.Label();
             this.prbar_ram_used = new CircularProgressBar.CircularProgressBar();
             this.lb_storage = new System.Windows.Forms.Label();
-            this.prbar_usedSpace = new Bunifu.Framework.UI.BunifuProgressBar();
-            this.prbar_freeSpace = new Bunifu.Framework.UI.BunifuProgressBar();
             this.bt_proc_info = new System.Windows.Forms.Button();
             this.timer_uc_acc = new System.Windows.Forms.Timer(this.components);
             this.lb_RAM_use = new System.Windows.Forms.Label();
-            this.lb_freeSpace = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lb_space_freeValue = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.prbar_usedSpace_total = new CircularProgressBar.CircularProgressBar();
+            this.prbar_freeSpace_total = new CircularProgressBar.CircularProgressBar();
+            this.lb_space_usedValue = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lb_space_free = new System.Windows.Forms.Label();
+            this.lb_space_used = new System.Windows.Forms.Label();
             this.tab_storage = new System.Windows.Forms.TabControl();
-            this.lb_mem_used = new System.Windows.Forms.Label();
-            this.lb_mem_free = new System.Windows.Forms.Label();
-            this.lb_usedSpace = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.tab_storage.SuspendLayout();
             this.SuspendLayout();
@@ -153,7 +154,7 @@
             // lb_cpu_temperature
             // 
             this.lb_cpu_temperature.AutoSize = true;
-            this.lb_cpu_temperature.Location = new System.Drawing.Point(215, 210);
+            this.lb_cpu_temperature.Location = new System.Drawing.Point(217, 210);
             this.lb_cpu_temperature.Name = "lb_cpu_temperature";
             this.lb_cpu_temperature.Size = new System.Drawing.Size(128, 22);
             this.lb_cpu_temperature.TabIndex = 4;
@@ -164,12 +165,12 @@
             this.lb_RAM.AutoSize = true;
             this.lb_RAM.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lb_RAM.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_RAM.Location = new System.Drawing.Point(30, 282);
+            this.lb_RAM.Location = new System.Drawing.Point(393, 30);
             this.lb_RAM.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lb_RAM.Name = "lb_RAM";
-            this.lb_RAM.Size = new System.Drawing.Size(75, 33);
+            this.lb_RAM.Size = new System.Drawing.Size(82, 33);
             this.lb_RAM.TabIndex = 0;
-            this.lb_RAM.Text = "RAM";
+            this.lb_RAM.Text = "RAM:";
             // 
             // lb_proc_name
             // 
@@ -187,12 +188,12 @@
             this.prbar_ram_used.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
             this.prbar_ram_used.AnimationSpeed = 500;
             this.prbar_ram_used.BackColor = System.Drawing.Color.Transparent;
-            this.prbar_ram_used.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.prbar_ram_used.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.prbar_ram_used.ForeColor = System.Drawing.Color.Black;
             this.prbar_ram_used.InnerColor = System.Drawing.SystemColors.Control;
             this.prbar_ram_used.InnerMargin = 0;
             this.prbar_ram_used.InnerWidth = 0;
-            this.prbar_ram_used.Location = new System.Drawing.Point(35, 333);
+            this.prbar_ram_used.Location = new System.Drawing.Point(399, 80);
             this.prbar_ram_used.Margin = new System.Windows.Forms.Padding(5);
             this.prbar_ram_used.MarqueeAnimationSpeed = 2000;
             this.prbar_ram_used.Maximum = 0;
@@ -202,7 +203,7 @@
             this.prbar_ram_used.OuterWidth = 5;
             this.prbar_ram_used.ProgressColor = System.Drawing.Color.SteelBlue;
             this.prbar_ram_used.ProgressWidth = 8;
-            this.prbar_ram_used.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.prbar_ram_used.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.prbar_ram_used.Size = new System.Drawing.Size(125, 125);
             this.prbar_ram_used.StartAngle = 270;
             this.prbar_ram_used.SubscriptColor = System.Drawing.Color.Gray;
@@ -219,38 +220,12 @@
             this.lb_storage.AutoSize = true;
             this.lb_storage.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lb_storage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_storage.Location = new System.Drawing.Point(225, 282);
+            this.lb_storage.Location = new System.Drawing.Point(30, 263);
             this.lb_storage.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lb_storage.Name = "lb_storage";
-            this.lb_storage.Size = new System.Drawing.Size(118, 33);
+            this.lb_storage.Size = new System.Drawing.Size(125, 33);
             this.lb_storage.TabIndex = 0;
-            this.lb_storage.Text = "Storage";
-            // 
-            // prbar_usedSpace
-            // 
-            this.prbar_usedSpace.BackColor = System.Drawing.Color.Silver;
-            this.prbar_usedSpace.BorderRadius = 5;
-            this.prbar_usedSpace.Location = new System.Drawing.Point(5, 30);
-            this.prbar_usedSpace.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.prbar_usedSpace.MaximumValue = 100;
-            this.prbar_usedSpace.Name = "prbar_usedSpace";
-            this.prbar_usedSpace.ProgressColor = System.Drawing.Color.Teal;
-            this.prbar_usedSpace.Size = new System.Drawing.Size(400, 30);
-            this.prbar_usedSpace.TabIndex = 5;
-            this.prbar_usedSpace.Value = 50;
-            // 
-            // prbar_freeSpace
-            // 
-            this.prbar_freeSpace.BackColor = System.Drawing.Color.Silver;
-            this.prbar_freeSpace.BorderRadius = 5;
-            this.prbar_freeSpace.Location = new System.Drawing.Point(5, 90);
-            this.prbar_freeSpace.Margin = new System.Windows.Forms.Padding(11, 8, 11, 8);
-            this.prbar_freeSpace.MaximumValue = 100;
-            this.prbar_freeSpace.Name = "prbar_freeSpace";
-            this.prbar_freeSpace.ProgressColor = System.Drawing.Color.Teal;
-            this.prbar_freeSpace.Size = new System.Drawing.Size(400, 30);
-            this.prbar_freeSpace.TabIndex = 5;
-            this.prbar_freeSpace.Value = 50;
+            this.lb_storage.Text = "Storage:";
             // 
             // bt_proc_info
             // 
@@ -274,76 +249,159 @@
             // lb_RAM_use
             // 
             this.lb_RAM_use.AutoSize = true;
-            this.lb_RAM_use.Location = new System.Drawing.Point(65, 463);
+            this.lb_RAM_use.Location = new System.Drawing.Point(428, 210);
             this.lb_RAM_use.Name = "lb_RAM_use";
             this.lb_RAM_use.Size = new System.Drawing.Size(63, 22);
             this.lb_RAM_use.TabIndex = 4;
             this.lb_RAM_use.Text = "In use";
             // 
-            // lb_freeSpace
+            // lb_space_freeValue
             // 
-            this.lb_freeSpace.AutoSize = true;
-            this.lb_freeSpace.BackColor = System.Drawing.Color.Transparent;
-            this.lb_freeSpace.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_freeSpace.Location = new System.Drawing.Point(405, 85);
-            this.lb_freeSpace.Name = "lb_freeSpace";
-            this.lb_freeSpace.Size = new System.Drawing.Size(47, 36);
-            this.lb_freeSpace.TabIndex = 7;
-            this.lb_freeSpace.Text = "70";
+            this.lb_space_freeValue.AutoSize = true;
+            this.lb_space_freeValue.BackColor = System.Drawing.Color.Transparent;
+            this.lb_space_freeValue.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_space_freeValue.ForeColor = System.Drawing.Color.Gray;
+            this.lb_space_freeValue.Location = new System.Drawing.Point(260, 155);
+            this.lb_space_freeValue.Name = "lb_space_freeValue";
+            this.lb_space_freeValue.Size = new System.Drawing.Size(31, 36);
+            this.lb_space_freeValue.TabIndex = 7;
+            this.lb_space_freeValue.Text = "0";
+            this.lb_space_freeValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.lb_mem_free);
-            this.tabPage1.Controls.Add(this.lb_mem_used);
-            this.tabPage1.Controls.Add(this.prbar_usedSpace);
-            this.tabPage1.Controls.Add(this.lb_usedSpace);
-            this.tabPage1.Controls.Add(this.lb_freeSpace);
-            this.tabPage1.Controls.Add(this.prbar_freeSpace);
+            this.tabPage1.Controls.Add(this.prbar_usedSpace_total);
+            this.tabPage1.Controls.Add(this.prbar_freeSpace_total);
+            this.tabPage1.Controls.Add(this.lb_space_usedValue);
+            this.tabPage1.Controls.Add(this.lb_space_freeValue);
+            this.tabPage1.Controls.Add(this.lb_space_free);
+            this.tabPage1.Controls.Add(this.lb_space_used);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(491, 132);
+            this.tabPage1.Size = new System.Drawing.Size(380, 200);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Total";
             // 
+            // prbar_usedSpace_total
+            // 
+            this.prbar_usedSpace_total.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.prbar_usedSpace_total.AnimationSpeed = 500;
+            this.prbar_usedSpace_total.BackColor = System.Drawing.Color.Transparent;
+            this.prbar_usedSpace_total.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.prbar_usedSpace_total.ForeColor = System.Drawing.Color.Black;
+            this.prbar_usedSpace_total.InnerColor = System.Drawing.SystemColors.Control;
+            this.prbar_usedSpace_total.InnerMargin = 0;
+            this.prbar_usedSpace_total.InnerWidth = 0;
+            this.prbar_usedSpace_total.Location = new System.Drawing.Point(8, 25);
+            this.prbar_usedSpace_total.Margin = new System.Windows.Forms.Padding(5);
+            this.prbar_usedSpace_total.MarqueeAnimationSpeed = 2000;
+            this.prbar_usedSpace_total.Name = "prbar_usedSpace_total";
+            this.prbar_usedSpace_total.OuterColor = System.Drawing.Color.Gainsboro;
+            this.prbar_usedSpace_total.OuterMargin = -30;
+            this.prbar_usedSpace_total.OuterWidth = 30;
+            this.prbar_usedSpace_total.ProgressColor = System.Drawing.Color.SteelBlue;
+            this.prbar_usedSpace_total.ProgressWidth = 30;
+            this.prbar_usedSpace_total.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.prbar_usedSpace_total.Size = new System.Drawing.Size(125, 125);
+            this.prbar_usedSpace_total.StartAngle = 270;
+            this.prbar_usedSpace_total.SubscriptColor = System.Drawing.Color.Gray;
+            this.prbar_usedSpace_total.SubscriptMargin = new System.Windows.Forms.Padding(0);
+            this.prbar_usedSpace_total.SubscriptText = "";
+            this.prbar_usedSpace_total.SuperscriptColor = System.Drawing.Color.Gray;
+            this.prbar_usedSpace_total.SuperscriptMargin = new System.Windows.Forms.Padding(8, 28, 0, 0);
+            this.prbar_usedSpace_total.SuperscriptText = "Mb";
+            this.prbar_usedSpace_total.TabIndex = 3;
+            this.prbar_usedSpace_total.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.prbar_usedSpace_total.Value = 25;
+            // 
+            // prbar_freeSpace_total
+            // 
+            this.prbar_freeSpace_total.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.prbar_freeSpace_total.AnimationSpeed = 500;
+            this.prbar_freeSpace_total.BackColor = System.Drawing.Color.Transparent;
+            this.prbar_freeSpace_total.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.prbar_freeSpace_total.ForeColor = System.Drawing.Color.Black;
+            this.prbar_freeSpace_total.InnerColor = System.Drawing.SystemColors.Control;
+            this.prbar_freeSpace_total.InnerMargin = 0;
+            this.prbar_freeSpace_total.InnerWidth = 0;
+            this.prbar_freeSpace_total.Location = new System.Drawing.Point(220, 25);
+            this.prbar_freeSpace_total.Margin = new System.Windows.Forms.Padding(5);
+            this.prbar_freeSpace_total.MarqueeAnimationSpeed = 2000;
+            this.prbar_freeSpace_total.Name = "prbar_freeSpace_total";
+            this.prbar_freeSpace_total.OuterColor = System.Drawing.Color.Gainsboro;
+            this.prbar_freeSpace_total.OuterMargin = -30;
+            this.prbar_freeSpace_total.OuterWidth = 30;
+            this.prbar_freeSpace_total.ProgressColor = System.Drawing.Color.SteelBlue;
+            this.prbar_freeSpace_total.ProgressWidth = 30;
+            this.prbar_freeSpace_total.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.prbar_freeSpace_total.Size = new System.Drawing.Size(125, 125);
+            this.prbar_freeSpace_total.StartAngle = 270;
+            this.prbar_freeSpace_total.SubscriptColor = System.Drawing.Color.Gray;
+            this.prbar_freeSpace_total.SubscriptMargin = new System.Windows.Forms.Padding(0);
+            this.prbar_freeSpace_total.SubscriptText = "";
+            this.prbar_freeSpace_total.SuperscriptColor = System.Drawing.Color.Gray;
+            this.prbar_freeSpace_total.SuperscriptMargin = new System.Windows.Forms.Padding(8, 28, 0, 0);
+            this.prbar_freeSpace_total.SuperscriptText = "Mb";
+            this.prbar_freeSpace_total.TabIndex = 3;
+            this.prbar_freeSpace_total.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.prbar_freeSpace_total.Value = 25;
+            // 
+            // lb_space_usedValue
+            // 
+            this.lb_space_usedValue.AutoSize = true;
+            this.lb_space_usedValue.BackColor = System.Drawing.Color.Transparent;
+            this.lb_space_usedValue.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_space_usedValue.ForeColor = System.Drawing.Color.Gray;
+            this.lb_space_usedValue.Location = new System.Drawing.Point(45, 155);
+            this.lb_space_usedValue.Name = "lb_space_usedValue";
+            this.lb_space_usedValue.Size = new System.Drawing.Size(31, 36);
+            this.lb_space_usedValue.TabIndex = 7;
+            this.lb_space_usedValue.Text = "0";
+            this.lb_space_usedValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_space_free
+            // 
+            this.lb_space_free.AutoSize = true;
+            this.lb_space_free.Location = new System.Drawing.Point(215, 5);
+            this.lb_space_free.Name = "lb_space_free";
+            this.lb_space_free.Size = new System.Drawing.Size(54, 22);
+            this.lb_space_free.TabIndex = 9;
+            this.lb_space_free.Text = "Free:";
+            // 
+            // lb_space_used
+            // 
+            this.lb_space_used.AutoSize = true;
+            this.lb_space_used.Location = new System.Drawing.Point(5, 5);
+            this.lb_space_used.Name = "lb_space_used";
+            this.lb_space_used.Size = new System.Drawing.Size(59, 22);
+            this.lb_space_used.TabIndex = 8;
+            this.lb_space_used.Text = "Used:";
+            // 
             // tab_storage
             // 
+            this.tab_storage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tab_storage.Controls.Add(this.tabPage1);
-            this.tab_storage.Location = new System.Drawing.Point(231, 318);
+            this.tab_storage.Location = new System.Drawing.Point(36, 309);
             this.tab_storage.Name = "tab_storage";
             this.tab_storage.SelectedIndex = 0;
-            this.tab_storage.Size = new System.Drawing.Size(499, 167);
+            this.tab_storage.Size = new System.Drawing.Size(388, 235);
             this.tab_storage.TabIndex = 8;
             // 
-            // lb_mem_used
+            // label1
             // 
-            this.lb_mem_used.AutoSize = true;
-            this.lb_mem_used.Location = new System.Drawing.Point(5, 5);
-            this.lb_mem_used.Name = "lb_mem_used";
-            this.lb_mem_used.Size = new System.Drawing.Size(59, 22);
-            this.lb_mem_used.TabIndex = 8;
-            this.lb_mem_used.Text = "Used:";
-            // 
-            // lb_mem_free
-            // 
-            this.lb_mem_free.AutoSize = true;
-            this.lb_mem_free.Location = new System.Drawing.Point(5, 65);
-            this.lb_mem_free.Name = "lb_mem_free";
-            this.lb_mem_free.Size = new System.Drawing.Size(54, 22);
-            this.lb_mem_free.TabIndex = 9;
-            this.lb_mem_free.Text = "Free:";
-            // 
-            // lb_usedSpace
-            // 
-            this.lb_usedSpace.AutoSize = true;
-            this.lb_usedSpace.BackColor = System.Drawing.Color.Transparent;
-            this.lb_usedSpace.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_usedSpace.Location = new System.Drawing.Point(405, 25);
-            this.lb_usedSpace.Name = "lb_usedSpace";
-            this.lb_usedSpace.Size = new System.Drawing.Size(47, 36);
-            this.lb_usedSpace.TabIndex = 7;
-            this.lb_usedSpace.Text = "70";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(214, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Sensor:";
             // 
             // uc_accelerator
             // 
@@ -361,6 +419,7 @@
             this.Controls.Add(this.lb_storage);
             this.Controls.Add(this.lb_RAM);
             this.Controls.Add(this.lb_proc_name);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lb_CPU);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -388,16 +447,17 @@
         private System.Windows.Forms.Label lb_proc_name;
         private CircularProgressBar.CircularProgressBar prbar_ram_used;
         private System.Windows.Forms.Label lb_storage;
-        private Bunifu.Framework.UI.BunifuProgressBar prbar_usedSpace;
-        private Bunifu.Framework.UI.BunifuProgressBar prbar_freeSpace;
         private System.Windows.Forms.Button bt_proc_info;
         private System.Windows.Forms.Timer timer_uc_acc;
         private System.Windows.Forms.Label lb_RAM_use;
-        private Bunifu.Framework.UI.BunifuCustomLabel lb_freeSpace;
+        private Bunifu.Framework.UI.BunifuCustomLabel lb_space_freeValue;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tab_storage;
-        private System.Windows.Forms.Label lb_mem_free;
-        private System.Windows.Forms.Label lb_mem_used;
-        private Bunifu.Framework.UI.BunifuCustomLabel lb_usedSpace;
+        private System.Windows.Forms.Label lb_space_free;
+        private System.Windows.Forms.Label lb_space_used;
+        private Bunifu.Framework.UI.BunifuCustomLabel lb_space_usedValue;
+        private CircularProgressBar.CircularProgressBar prbar_usedSpace_total;
+        private CircularProgressBar.CircularProgressBar prbar_freeSpace_total;
+        private System.Windows.Forms.Label label1;
     }
 }

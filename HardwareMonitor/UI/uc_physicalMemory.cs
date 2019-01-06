@@ -12,16 +12,15 @@ namespace HardwareMonitor.UI
 {
     public partial class uc_physicalMemory : UserControl
     {
+        Hardware.PhysicalMemory mem = new Hardware.PhysicalMemory();
+        const int bytesInMegabyte = 1 << 20;
+
+
         public uc_physicalMemory()
         {
             InitializeComponent();
-
-			const int bytesInMegabyte = 1 << 20;
-
-            Hardware.PhysicalMemory mem = new Hardware.PhysicalMemory();
             mem.Retrieve();
-            Hardware.MemoryBank memory0 = mem.MemoryBanks[0];
-            
+          //  Hardware.MemoryBank memory0 = mem.MemoryBanks[0];
             for (int i = 0; i < mem.MemoryBanks.Count(); i++)
             {
                 string title = "RAM " + i.ToString();
@@ -201,10 +200,7 @@ namespace HardwareMonitor.UI
                     Text = currentBank.DataWidth.ToString(),
                     Location = new Point(165, 405)
                 };
-                PictureBox pbox_manufact = new PictureBox
-                {
-
-                };
+               
 
 
                 myTabPage.Controls.Add(lb_bank);

@@ -15,9 +15,36 @@ namespace HardwareMonitor.Hardware
         public string VolumeLabel { get; set; }
         public long TotalFreeSpace { get; set; }
 
+        public int GetFreeSpaceInPerc()
+        {
+            int percent = (int)(TotalFreeSpace * 100 / TotalSize);
+            return percent;
+        }
+
+        public int GetUsedSpaceInPerc()
+        {
+            int percent = 100 - GetFreeSpaceInPerc();
+            return percent;
+        }
+
+        public double GetFreeSpaceInMegaBytes()
+        {
+            double megaBytes = TotalFreeSpace / bytesInMegabyte;
+            return megaBytes;
+        }
+
+        public double GetUsedSpaceInMegaBytes()
+        {
+            double megaBytes = TotalSize / bytesInMegabyte - GetFreeSpaceInMegaBytes();
+            return megaBytes; 
+        }
+
+
+
     }
     class LogicaController : IHardware
     {
+        public long TotalMemory { get; set; }
         public List<LogicalDisk> LogicalDisks { get; private set; }
         DriveInfo[] allDrives = DriveInfo.GetDrives();
 
@@ -28,27 +55,36 @@ namespace HardwareMonitor.Hardware
             foreach (DriveInfo d in allDrives)
             {
                 LogicalDisk disk = new LogicalDisk();
-                disk.DriveFormat = d.DriveFormat;
-                disk.DriveType = d.DriveType;
-                disk.Name = d.Name;
-                disk.DriveFormat = d.DriveFormat;
-                disk.RootDirectory = d.RootDirectory;
-                disk.TotalSize = d.TotalSize;
-                disk.VolumeLabel = d.VolumeLabel;
-                LogicalDisks.Add(disk);
+                if (d.IsReady == true) {
+                    disk.DriveFormat = d.DriveFormat;
+                    disk.DriveType = d.DriveType;
+                    disk.Name = d.Name;
+                    disk.DriveFormat = d.DriveFormat;
+                    disk.RootDirectory = d.RootDirectory;
+                    disk.TotalSize = d.TotalSize;
+                    disk.VolumeLabel = d.VolumeLabel;
+                    LogicalDisks.Add(disk);
+                    TotalMemory += d.TotalSize;
+                }
             }
 
         }
+
+
         public void Update()
         {
+            int count = 0;
             foreach (DriveInfo d in allDrives)
             {
-                int count = 0;
-                LogicalDisks[count].TotalFreeSpace = d.TotalFreeSpace;
+                if (d.IsReady == true)
+                {
+                    LogicalDisks[count].TotalFreeSpace = d.TotalFreeSpace;
+                }
                 count++;
             }
-
         }
+
+        
 
     }
 }

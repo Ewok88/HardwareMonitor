@@ -64,6 +64,7 @@
     <Compile Include="Hardware\OperatingSystem.cs" />
     <Compile Include="Hardware\PhysicalMemory.cs" />
     <Compile Include="Hardware\Processor.cs" />
+    <Compile Include="Hardware\TemperatureSensor.cs" />
     <Compile Include="Hardware\VideoController.cs" />
     <Compile Include="UI\Over_Form.cs">
       <SubType>Form</SubType>
