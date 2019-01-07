@@ -50,14 +50,14 @@
             this.lb_sys_boottime = new System.Windows.Forms.Label();
             this.pnl_windows = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lb_csname = new System.Windows.Forms.Label();
+            this.lbox_languages = new System.Windows.Forms.ListBox();
+            this.lb_sys_usernum = new System.Windows.Forms.Label();
             this.lb_sys_csname = new System.Windows.Forms.Label();
             this.lb_usernum = new System.Windows.Forms.Label();
-            this.lb_sys_usernum = new System.Windows.Forms.Label();
+            this.lb_csname = new System.Windows.Forms.Label();
+            this.lb_languages = new System.Windows.Forms.Label();
             this.lb_hor_line = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lb_languages = new System.Windows.Forms.Label();
-            this.lbox_languages = new System.Windows.Forms.ListBox();
             this.timer_sys = new System.Windows.Forms.Timer(this.components);
             this.lb_sys_time = new System.Windows.Forms.Label();
             this.lb_time = new System.Windows.Forms.Label();
@@ -272,7 +272,7 @@
             this.pnl_windows.Controls.Add(this.lb_sys_build_type);
             this.pnl_windows.Location = new System.Drawing.Point(20, 60);
             this.pnl_windows.Name = "pnl_windows";
-            this.pnl_windows.Size = new System.Drawing.Size(450, 185);
+            this.pnl_windows.Size = new System.Drawing.Size(519, 185);
             this.pnl_windows.TabIndex = 1;
             // 
             // panel1
@@ -291,18 +291,31 @@
             this.panel1.Controls.Add(this.lb_sys_user);
             this.panel1.Location = new System.Drawing.Point(20, 290);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 244);
+            this.panel1.Size = new System.Drawing.Size(519, 244);
             this.panel1.TabIndex = 2;
             // 
-            // lb_csname
+            // lbox_languages
             // 
-            this.lb_csname.AutoSize = true;
-            this.lb_csname.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_csname.Location = new System.Drawing.Point(0, 60);
-            this.lb_csname.Name = "lb_csname";
-            this.lb_csname.Size = new System.Drawing.Size(167, 23);
-            this.lb_csname.TabIndex = 0;
-            this.lb_csname.Text = "Scoping System:";
+            this.lbox_languages.BackColor = System.Drawing.SystemColors.Control;
+            this.lbox_languages.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbox_languages.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbox_languages.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbox_languages.FormattingEnabled = true;
+            this.lbox_languages.ItemHeight = 23;
+            this.lbox_languages.Location = new System.Drawing.Point(183, 150);
+            this.lbox_languages.Name = "lbox_languages";
+            this.lbox_languages.Size = new System.Drawing.Size(229, 46);
+            this.lbox_languages.TabIndex = 4;
+            // 
+            // lb_sys_usernum
+            // 
+            this.lb_sys_usernum.AutoSize = true;
+            this.lb_sys_usernum.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_sys_usernum.Location = new System.Drawing.Point(180, 30);
+            this.lb_sys_usernum.Name = "lb_sys_usernum";
+            this.lb_sys_usernum.Size = new System.Drawing.Size(48, 23);
+            this.lb_sys_usernum.TabIndex = 0;
+            this.lb_sys_usernum.Text = "wqr";
             // 
             // lb_sys_csname
             // 
@@ -324,15 +337,25 @@
             this.lb_usernum.TabIndex = 0;
             this.lb_usernum.Text = "Number of users:";
             // 
-            // lb_sys_usernum
+            // lb_csname
             // 
-            this.lb_sys_usernum.AutoSize = true;
-            this.lb_sys_usernum.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_sys_usernum.Location = new System.Drawing.Point(180, 30);
-            this.lb_sys_usernum.Name = "lb_sys_usernum";
-            this.lb_sys_usernum.Size = new System.Drawing.Size(48, 23);
-            this.lb_sys_usernum.TabIndex = 0;
-            this.lb_sys_usernum.Text = "wqr";
+            this.lb_csname.AutoSize = true;
+            this.lb_csname.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_csname.Location = new System.Drawing.Point(0, 60);
+            this.lb_csname.Name = "lb_csname";
+            this.lb_csname.Size = new System.Drawing.Size(167, 23);
+            this.lb_csname.TabIndex = 0;
+            this.lb_csname.Text = "Scoping System:";
+            // 
+            // lb_languages
+            // 
+            this.lb_languages.AutoSize = true;
+            this.lb_languages.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_languages.Location = new System.Drawing.Point(0, 150);
+            this.lb_languages.Name = "lb_languages";
+            this.lb_languages.Size = new System.Drawing.Size(123, 23);
+            this.lb_languages.TabIndex = 0;
+            this.lb_languages.Text = "Languages:";
             // 
             // lb_hor_line
             // 
@@ -350,29 +373,6 @@
             this.label1.Size = new System.Drawing.Size(68, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "User";
-            // 
-            // lb_languages
-            // 
-            this.lb_languages.AutoSize = true;
-            this.lb_languages.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_languages.Location = new System.Drawing.Point(0, 150);
-            this.lb_languages.Name = "lb_languages";
-            this.lb_languages.Size = new System.Drawing.Size(123, 23);
-            this.lb_languages.TabIndex = 0;
-            this.lb_languages.Text = "Languages:";
-            // 
-            // lbox_languages
-            // 
-            this.lbox_languages.BackColor = System.Drawing.SystemColors.Control;
-            this.lbox_languages.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbox_languages.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbox_languages.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbox_languages.FormattingEnabled = true;
-            this.lbox_languages.ItemHeight = 23;
-            this.lbox_languages.Location = new System.Drawing.Point(183, 150);
-            this.lbox_languages.Name = "lbox_languages";
-            this.lbox_languages.Size = new System.Drawing.Size(229, 46);
-            this.lbox_languages.TabIndex = 4;
             // 
             // timer_sys
             // 
@@ -404,7 +404,7 @@
             // 
             this.pnl_time.Controls.Add(this.lb_time);
             this.pnl_time.Controls.Add(this.lb_sys_time);
-            this.pnl_time.Location = new System.Drawing.Point(522, 60);
+            this.pnl_time.Location = new System.Drawing.Point(545, 60);
             this.pnl_time.Name = "pnl_time";
             this.pnl_time.Size = new System.Drawing.Size(200, 100);
             this.pnl_time.TabIndex = 5;

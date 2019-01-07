@@ -40,7 +40,6 @@
             this.lb_proc_name = new System.Windows.Forms.Label();
             this.prbar_ram_used = new CircularProgressBar.CircularProgressBar();
             this.lb_storage = new System.Windows.Forms.Label();
-            this.bt_proc_info = new System.Windows.Forms.Button();
             this.timer_uc_acc = new System.Windows.Forms.Timer(this.components);
             this.lb_RAM_use = new System.Windows.Forms.Label();
             this.lb_space_freeValue = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -52,6 +51,7 @@
             this.lb_space_used = new System.Windows.Forms.Label();
             this.tab_storage = new System.Windows.Forms.TabControl();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_chart = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
             this.tab_storage.SuspendLayout();
             this.SuspendLayout();
@@ -132,6 +132,7 @@
             this.prbar_temperature.Location = new System.Drawing.Point(220, 80);
             this.prbar_temperature.Margin = new System.Windows.Forms.Padding(5);
             this.prbar_temperature.MarqueeAnimationSpeed = 2000;
+            this.prbar_temperature.Maximum = 120;
             this.prbar_temperature.Name = "prbar_temperature";
             this.prbar_temperature.OuterColor = System.Drawing.Color.Gainsboro;
             this.prbar_temperature.OuterMargin = -5;
@@ -149,7 +150,7 @@
             this.prbar_temperature.SuperscriptText = "C";
             this.prbar_temperature.TabIndex = 3;
             this.prbar_temperature.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.prbar_temperature.Value = 100;
+            this.prbar_temperature.Value = 120;
             // 
             // lb_cpu_temperature
             // 
@@ -227,19 +228,6 @@
             this.lb_storage.TabIndex = 0;
             this.lb_storage.Text = "Storage:";
             // 
-            // bt_proc_info
-            // 
-            this.bt_proc_info.BackColor = System.Drawing.SystemColors.Control;
-            this.bt_proc_info.FlatAppearance.BorderSize = 0;
-            this.bt_proc_info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_proc_info.Image = ((System.Drawing.Image)(resources.GetObject("bt_proc_info.Image")));
-            this.bt_proc_info.Location = new System.Drawing.Point(695, 34);
-            this.bt_proc_info.Name = "bt_proc_info";
-            this.bt_proc_info.Size = new System.Drawing.Size(35, 35);
-            this.bt_proc_info.TabIndex = 6;
-            this.bt_proc_info.Text = " ";
-            this.bt_proc_info.UseVisualStyleBackColor = false;
-            // 
             // timer_uc_acc
             // 
             this.timer_uc_acc.Enabled = true;
@@ -261,7 +249,7 @@
             this.lb_space_freeValue.BackColor = System.Drawing.Color.Transparent;
             this.lb_space_freeValue.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lb_space_freeValue.ForeColor = System.Drawing.Color.Gray;
-            this.lb_space_freeValue.Location = new System.Drawing.Point(260, 155);
+            this.lb_space_freeValue.Location = new System.Drawing.Point(220, 155);
             this.lb_space_freeValue.Name = "lb_space_freeValue";
             this.lb_space_freeValue.Size = new System.Drawing.Size(31, 36);
             this.lb_space_freeValue.TabIndex = 7;
@@ -280,7 +268,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(380, 200);
+            this.tabPage1.Size = new System.Drawing.Size(700, 208);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Total";
             // 
@@ -294,7 +282,7 @@
             this.prbar_usedSpace_total.InnerColor = System.Drawing.SystemColors.Control;
             this.prbar_usedSpace_total.InnerMargin = 0;
             this.prbar_usedSpace_total.InnerWidth = 0;
-            this.prbar_usedSpace_total.Location = new System.Drawing.Point(8, 25);
+            this.prbar_usedSpace_total.Location = new System.Drawing.Point(5, 25);
             this.prbar_usedSpace_total.Margin = new System.Windows.Forms.Padding(5);
             this.prbar_usedSpace_total.MarqueeAnimationSpeed = 2000;
             this.prbar_usedSpace_total.Name = "prbar_usedSpace_total";
@@ -354,7 +342,7 @@
             this.lb_space_usedValue.BackColor = System.Drawing.Color.Transparent;
             this.lb_space_usedValue.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lb_space_usedValue.ForeColor = System.Drawing.Color.Gray;
-            this.lb_space_usedValue.Location = new System.Drawing.Point(45, 155);
+            this.lb_space_usedValue.Location = new System.Drawing.Point(5, 155);
             this.lb_space_usedValue.Name = "lb_space_usedValue";
             this.lb_space_usedValue.Size = new System.Drawing.Size(31, 36);
             this.lb_space_usedValue.TabIndex = 7;
@@ -385,10 +373,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tab_storage.Controls.Add(this.tabPage1);
-            this.tab_storage.Location = new System.Drawing.Point(36, 309);
+            this.tab_storage.Location = new System.Drawing.Point(20, 309);
             this.tab_storage.Name = "tab_storage";
             this.tab_storage.SelectedIndex = 0;
-            this.tab_storage.Size = new System.Drawing.Size(388, 235);
+            this.tab_storage.Size = new System.Drawing.Size(708, 243);
             this.tab_storage.TabIndex = 8;
             // 
             // label1
@@ -403,12 +391,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Sensor:";
             // 
+            // btn_chart
+            // 
+            this.btn_chart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_chart.BackgroundImage")));
+            this.btn_chart.FlatAppearance.BorderSize = 0;
+            this.btn_chart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_chart.Location = new System.Drawing.Point(694, 33);
+            this.btn_chart.Name = "btn_chart";
+            this.btn_chart.Size = new System.Drawing.Size(30, 30);
+            this.btn_chart.TabIndex = 9;
+            this.btn_chart.UseVisualStyleBackColor = true;
+            this.btn_chart.Click += new System.EventHandler(this.btn_chart_Click);
+            // 
             // uc_accelerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_chart);
             this.Controls.Add(this.tab_storage);
-            this.Controls.Add(this.bt_proc_info);
             this.Controls.Add(this.lb_cpu_temperature);
             this.Controls.Add(this.lb_RAM_use);
             this.Controls.Add(this.lb_cpu_load);
@@ -427,6 +427,7 @@
             this.Name = "uc_accelerator";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Size = new System.Drawing.Size(748, 656);
+            this.Load += new System.EventHandler(this.uc_accelerator_Load);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tab_storage.ResumeLayout(false);
@@ -447,7 +448,6 @@
         private System.Windows.Forms.Label lb_proc_name;
         private CircularProgressBar.CircularProgressBar prbar_ram_used;
         private System.Windows.Forms.Label lb_storage;
-        private System.Windows.Forms.Button bt_proc_info;
         private System.Windows.Forms.Timer timer_uc_acc;
         private System.Windows.Forms.Label lb_RAM_use;
         private Bunifu.Framework.UI.BunifuCustomLabel lb_space_freeValue;
@@ -459,5 +459,6 @@
         private CircularProgressBar.CircularProgressBar prbar_usedSpace_total;
         private CircularProgressBar.CircularProgressBar prbar_freeSpace_total;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_chart;
     }
 }

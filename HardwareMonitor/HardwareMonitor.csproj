@@ -32,6 +32,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -42,7 +52,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,19 +70,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hardware\Checker.cs" />
     <Compile Include="Hardware\IHardware.cs" />
     <Compile Include="Hardware\LogicalController.cs" />
     <Compile Include="Hardware\Motherboard.cs" />
     <Compile Include="Hardware\OperatingSystem.cs" />
     <Compile Include="Hardware\PhysicalMemory.cs" />
     <Compile Include="Hardware\Processor.cs" />
+    <Compile Include="Hardware\AllSettings.cs" />
     <Compile Include="Hardware\TemperatureSensor.cs" />
     <Compile Include="Hardware\VideoController.cs" />
-    <Compile Include="UI\Over_Form.cs">
+    <Compile Include="UI\Chart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Over_Form.Designer.cs">
-      <DependentUpon>Over_Form.cs</DependentUpon>
+    <Compile Include="UI\Chart.Designer.cs">
+      <DependentUpon>Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Overlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Overlay.Designer.cs">
+      <DependentUpon>Overlay.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Main_Form.cs">
       <SubType>Form</SubType>
@@ -80,6 +100,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\uc_accelerator.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,8 +142,11 @@
     <Compile Include="UI\uc_videoController.Designer.cs">
       <DependentUpon>uc_videoController.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\Over_Form.resx">
-      <DependentUpon>Over_Form.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Chart.resx">
+      <DependentUpon>Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Overlay.resx">
+      <DependentUpon>Overlay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
@@ -133,6 +162,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_accelerator.resx">
       <DependentUpon>uc_accelerator.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +184,7 @@
       <DependentUpon>uc_videoController.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

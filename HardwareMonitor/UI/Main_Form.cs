@@ -1,4 +1,5 @@
 ﻿
+using HardwareMonitor.Hardware;
 using HardwareMonitor.UI;
 using System;
 using System.Collections.Generic;
@@ -17,16 +18,17 @@ namespace HardwareMonitor
     {
         public Main_Form()
         {
-            
             InitializeComponent();
             pnl_right.Height = btn_accelerator.Height;
             uc_accelerator1.BringToFront();
+            AllSettings.Accelerator = uc_accelerator1;
+            Chart.Accelerator = uc_accelerator1;
+            
+            Checker.icon = icn_tray;
         }
         private void Main_Form_Load(object sender, EventArgs e)
         {
-            icn_tray.BalloonTipTitle = "Hardware Monitor";
-            icn_tray.BalloonTipText = "Application has been minimized";
-            icn_tray.Text = "Hardware Monitor";
+            AllSettings.ReadSettings();
         }
         private void btn_close_Click(object sender, EventArgs e)
         {
@@ -36,6 +38,11 @@ namespace HardwareMonitor
         private void btn_minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+            icn_tray.BalloonTipTitle = "Hardware Monitor";
+            icn_tray.BalloonTipText = "Application has been minimized";
+            icn_tray.Text = "Hardware Monitor";
+            icn_tray.BalloonTipIcon = ToolTipIcon.Info;
+            icn_tray.ShowBalloonTip(2);
         }
 
         private void icn_tray_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -122,6 +129,12 @@ namespace HardwareMonitor
             pnl_right.Height = btn_ph_mem.Height;
             pnl_right.Top = btn_ph_mem.Top;
             uc_physicalMemory1.BringToFront();
+        }
+
+        private void btn_settings_Click(object sender, EventArgs e)
+        {
+            Settings form_settings = new Settings();
+            form_settings.ShowDialog();
         }
     }
 }   

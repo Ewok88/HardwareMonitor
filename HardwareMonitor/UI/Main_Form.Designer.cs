@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
-            this.btn_system = new System.Windows.Forms.Button();
-            this.btn_accelerator = new System.Windows.Forms.Button();
             this.icn_tray = new System.Windows.Forms.NotifyIcon(this.components);
             this.icn_menu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,55 +37,30 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pnl_header = new System.Windows.Forms.Panel();
             this.lb_hor_line = new System.Windows.Forms.Label();
+            this.btn_settings = new System.Windows.Forms.Button();
             this.bt_overlay = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_minimize = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
             this.pnl_left = new System.Windows.Forms.Panel();
+            this.btn_accelerator = new System.Windows.Forms.Button();
             this.btn_ph_mem = new System.Windows.Forms.Button();
             this.btn_gpu = new System.Windows.Forms.Button();
             this.btn_processor = new System.Windows.Forms.Button();
             this.btn_motherboard = new System.Windows.Forms.Button();
+            this.btn_system = new System.Windows.Forms.Button();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.uc_physicalMemory1 = new HardwareMonitor.UI.uc_physicalMemory();
             this.uc_video_controller1 = new HardwareMonitor.UI.uc_video_controller();
             this.uc_motherboard1 = new HardwareMonitor.UI.uc_motherboard();
             this.uc_system1 = new HardwareMonitor.UI.uc_system();
             this.uc_processor2 = new HardwareMonitor.UI.uc_processor();
             this.uc_accelerator1 = new HardwareMonitor.UI.uc_accelerator();
-            this.uc_physicalMemory1 = new HardwareMonitor.UI.uc_physicalMemory();
             this.icn_menu.SuspendLayout();
             this.pnl_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl_left.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btn_system
-            // 
-            this.btn_system.FlatAppearance.BorderSize = 0;
-            this.btn_system.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_system.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btn_system.Image = ((System.Drawing.Image)(resources.GetObject("btn_system.Image")));
-            this.btn_system.Location = new System.Drawing.Point(5, 50);
-            this.btn_system.Name = "btn_system";
-            this.btn_system.Size = new System.Drawing.Size(45, 45);
-            this.btn_system.TabIndex = 3;
-            this.btn_system.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_system.UseVisualStyleBackColor = true;
-            this.btn_system.Click += new System.EventHandler(this.btn_system_Click);
-            // 
-            // btn_accelerator
-            // 
-            this.btn_accelerator.FlatAppearance.BorderSize = 0;
-            this.btn_accelerator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_accelerator.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btn_accelerator.Image = ((System.Drawing.Image)(resources.GetObject("btn_accelerator.Image")));
-            this.btn_accelerator.Location = new System.Drawing.Point(5, 0);
-            this.btn_accelerator.Name = "btn_accelerator";
-            this.btn_accelerator.Size = new System.Drawing.Size(45, 45);
-            this.btn_accelerator.TabIndex = 1;
-            this.btn_accelerator.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_accelerator.UseVisualStyleBackColor = true;
-            this.btn_accelerator.Click += new System.EventHandler(this.btn_accelerator_Click);
             // 
             // icn_tray
             // 
@@ -124,6 +97,7 @@
             // 
             this.pnl_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
             this.pnl_header.Controls.Add(this.lb_hor_line);
+            this.pnl_header.Controls.Add(this.btn_settings);
             this.pnl_header.Controls.Add(this.bt_overlay);
             this.pnl_header.Controls.Add(this.pictureBox1);
             this.pnl_header.Controls.Add(this.btn_minimize);
@@ -141,6 +115,20 @@
             this.lb_hor_line.Name = "lb_hor_line";
             this.lb_hor_line.Size = new System.Drawing.Size(1, 30);
             this.lb_hor_line.TabIndex = 6;
+            // 
+            // btn_settings
+            // 
+            this.btn_settings.FlatAppearance.BorderSize = 0;
+            this.btn_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_settings.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btn_settings.Image = ((System.Drawing.Image)(resources.GetObject("btn_settings.Image")));
+            this.btn_settings.Location = new System.Drawing.Point(634, 2);
+            this.btn_settings.Name = "btn_settings";
+            this.btn_settings.Size = new System.Drawing.Size(35, 35);
+            this.btn_settings.TabIndex = 3;
+            this.btn_settings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_settings.UseVisualStyleBackColor = true;
+            this.btn_settings.Click += new System.EventHandler(this.btn_settings_Click);
             // 
             // bt_overlay
             // 
@@ -211,6 +199,20 @@
             this.pnl_left.Size = new System.Drawing.Size(52, 660);
             this.pnl_left.TabIndex = 5;
             // 
+            // btn_accelerator
+            // 
+            this.btn_accelerator.FlatAppearance.BorderSize = 0;
+            this.btn_accelerator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_accelerator.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btn_accelerator.Image = ((System.Drawing.Image)(resources.GetObject("btn_accelerator.Image")));
+            this.btn_accelerator.Location = new System.Drawing.Point(5, 0);
+            this.btn_accelerator.Name = "btn_accelerator";
+            this.btn_accelerator.Size = new System.Drawing.Size(45, 45);
+            this.btn_accelerator.TabIndex = 1;
+            this.btn_accelerator.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_accelerator.UseVisualStyleBackColor = true;
+            this.btn_accelerator.Click += new System.EventHandler(this.btn_accelerator_Click);
+            // 
             // btn_ph_mem
             // 
             this.btn_ph_mem.FlatAppearance.BorderSize = 0;
@@ -267,12 +269,35 @@
             this.btn_motherboard.UseVisualStyleBackColor = true;
             this.btn_motherboard.Click += new System.EventHandler(this.btn_motherboard_Click);
             // 
+            // btn_system
+            // 
+            this.btn_system.FlatAppearance.BorderSize = 0;
+            this.btn_system.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_system.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btn_system.Image = ((System.Drawing.Image)(resources.GetObject("btn_system.Image")));
+            this.btn_system.Location = new System.Drawing.Point(5, 50);
+            this.btn_system.Name = "btn_system";
+            this.btn_system.Size = new System.Drawing.Size(45, 45);
+            this.btn_system.TabIndex = 3;
+            this.btn_system.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_system.UseVisualStyleBackColor = true;
+            this.btn_system.Click += new System.EventHandler(this.btn_system_Click);
+            // 
             // bunifuDragControl1
             // 
             this.bunifuDragControl1.Fixed = true;
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.pnl_header;
             this.bunifuDragControl1.Vertical = true;
+            // 
+            // uc_physicalMemory1
+            // 
+            this.uc_physicalMemory1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uc_physicalMemory1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.uc_physicalMemory1.Location = new System.Drawing.Point(52, 40);
+            this.uc_physicalMemory1.Name = "uc_physicalMemory1";
+            this.uc_physicalMemory1.Size = new System.Drawing.Size(748, 660);
+            this.uc_physicalMemory1.TabIndex = 11;
             // 
             // uc_video_controller1
             // 
@@ -320,17 +345,9 @@
             this.uc_accelerator1.Location = new System.Drawing.Point(0, 0);
             this.uc_accelerator1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.uc_accelerator1.Name = "uc_accelerator1";
+            this.uc_accelerator1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.uc_accelerator1.Size = new System.Drawing.Size(800, 700);
             this.uc_accelerator1.TabIndex = 6;
-            // 
-            // uc_physicalMemory1
-            // 
-            this.uc_physicalMemory1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_physicalMemory1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.uc_physicalMemory1.Location = new System.Drawing.Point(52, 40);
-            this.uc_physicalMemory1.Name = "uc_physicalMemory1";
-            this.uc_physicalMemory1.Size = new System.Drawing.Size(748, 660);
-            this.uc_physicalMemory1.TabIndex = 11;
             // 
             // Main_Form
             // 
@@ -388,6 +405,7 @@
         private UI.uc_video_controller uc_video_controller1;
         private System.Windows.Forms.Button btn_ph_mem;
         private UI.uc_physicalMemory uc_physicalMemory1;
+        private System.Windows.Forms.Button btn_settings;
     }
 }
 
