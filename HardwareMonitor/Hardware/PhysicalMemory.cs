@@ -72,9 +72,6 @@ namespace HardwareMonitor.Hardware
     
     class PhysicalMemory : IHardware
     {
-
-       
-       
         public ulong TotalMemory { get; set; }
         public List<MemoryBank> MemoryBanks { get; private set; }
 

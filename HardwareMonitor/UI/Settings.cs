@@ -145,8 +145,8 @@ namespace HardwareMonitor.UI
         private void btn_folder_Click(object sender, EventArgs e)
         {
             fbd_save.RootFolder = Environment.SpecialFolder.Desktop;
-            fbd_save.Description = "Select Folder";
-            fbd_save.ShowNewFolderButton = false;
+            fbd_save.Description = "Select a folder to save the log";
+            fbd_save.ShowNewFolderButton = true;
             if(fbd_save.ShowDialog()== DialogResult.OK)
             {
                 tb_direction.Text = fbd_save.SelectedPath;

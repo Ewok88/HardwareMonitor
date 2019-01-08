@@ -38,7 +38,6 @@ namespace HardwareMonitor.Hardware
                     icon.BalloonTipIcon = ToolTipIcon.Warning;
                     icon.ShowBalloonTip(3);
                     icon.Visible = false;
-                   
                 }
 			}
 			else
@@ -55,6 +54,7 @@ namespace HardwareMonitor.Hardware
 				m_highTemperatureTime = DateTime.MinValue;
 			}
 		}
+
 
 		public void CheckFreeSpace( int _currentFreeSpace, int _criticalFreeSpace )
 		{
@@ -73,9 +73,6 @@ namespace HardwareMonitor.Hardware
                     icon.BalloonTipIcon = ToolTipIcon.Warning;
                     icon.ShowBalloonTip(3);
                     icon.Visible = false;
-
-
-
                 }
             }
             else

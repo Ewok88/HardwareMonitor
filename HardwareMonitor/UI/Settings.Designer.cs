@@ -56,6 +56,7 @@
             this.btn_folder = new System.Windows.Forms.Button();
             this.btn_OK = new System.Windows.Forms.Button();
             this.fbd_save = new System.Windows.Forms.FolderBrowserDialog();
+            this.lb_deg = new System.Windows.Forms.Label();
             this.pnl_top.SuspendLayout();
             this.pnl_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_RAM)).BeginInit();
@@ -120,6 +121,7 @@
             this.pnl_main.Controls.Add(this.slide_temp);
             this.pnl_main.Controls.Add(this.lb_percRAM);
             this.pnl_main.Controls.Add(this.lb_MbSpace);
+            this.pnl_main.Controls.Add(this.lb_deg);
             this.pnl_main.Controls.Add(this.lb_percSpace);
             this.pnl_main.Controls.Add(this.lb_folder);
             this.pnl_main.Controls.Add(this.lb_RAM);
@@ -397,6 +399,16 @@
             this.btn_OK.UseVisualStyleBackColor = false;
             this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
             // 
+            // lb_deg
+            // 
+            this.lb_deg.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lb_deg.AutoSize = true;
+            this.lb_deg.Location = new System.Drawing.Point(300, 10);
+            this.lb_deg.Name = "lb_deg";
+            this.lb_deg.Size = new System.Drawing.Size(35, 24);
+            this.lb_deg.TabIndex = 6;
+            this.lb_deg.Text = "°С";
+            // 
             // Settings
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -449,5 +461,6 @@
         private System.Windows.Forms.Button btn_folder;
         private System.Windows.Forms.FolderBrowserDialog fbd_save;
         private System.Windows.Forms.TextBox tb_direction;
+        private System.Windows.Forms.Label lb_deg;
     }
 }

@@ -15,21 +15,13 @@ namespace HardwareMonitor
 {
     public partial class Over_Form : Form
     {
-       
+
         PerformanceCounter perfCPU_over = new PerformanceCounter("Processor Information", "% Processor Time", "_Total");
         PerformanceCounter perfRAM_over = new PerformanceCounter("Memory", "Available MBytes");
         const int bytesInMegabyte = 1 << 20;
-        public Over_Form()
+
+        public Point SetPosition()
         {
-            
-         
-
-            InitializeComponent();
-            PhysicalMemory mem = new PhysicalMemory();
-            mem.Retrieve();
-            prbar_RAM.MaximumValue = (int)(mem.TotalMemory / bytesInMegabyte);
-
-
             this.StartPosition = FormStartPosition.Manual;
             //Верхний левый угол экрана
             Point pt = Screen.PrimaryScreen.WorkingArea.Location;
@@ -38,7 +30,19 @@ namespace HardwareMonitor
             //Перенос в местоположение верхнего левого угла формы, чтобы её правый нижний угол попал в правый нижний угол экрана
             pt.Offset(-this.Width, -this.Height);
             //Новое положение формы
-            this.Location = pt;
+            return pt;
+        }
+
+        public Over_Form()
+        {
+            InitializeComponent();
+            PhysicalMemory mem = new PhysicalMemory();
+            mem.Retrieve();
+            prbar_RAM.MaximumValue = (int)(mem.TotalMemory / bytesInMegabyte);
+
+            
+            
+            this.Location = SetPosition();
             this.ShowInTaskbar = false;
 
         }

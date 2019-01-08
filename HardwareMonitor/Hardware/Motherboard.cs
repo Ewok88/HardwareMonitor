@@ -40,44 +40,48 @@ namespace HardwareMonitor.Hardware
 
         public void Retrieve()
         {
-            ManagementObjectSearcher searcher =
-                    new ManagementObjectSearcher("root\\CIMV2",
-                   "SELECT * FROM Win32_BaseBoard");
-            foreach (ManagementObject managementObject in searcher.Get())
+            try
             {
-                Caption = (string)(managementObject.Properties["Caption"]?.Value);
-                ConfigOptions = (string[])(managementObject.Properties["ConfigOptions"]?.Value ?? new string[0]);
-                CreationClassName = (string)(managementObject.Properties["CreationClassName"]?.Value);
-                Depth = (float)(managementObject.Properties["Depth"]?.Value ?? default(float));
-                Description = (string)(managementObject.Properties["Description"]?.Value);
-                Height = (float)(managementObject.Properties["Height"]?.Value ?? default(float));
-                HostingBoard = (bool)(managementObject.Properties["HostingBoard"]?.Value ?? default(bool));
-                HotSwappable = (bool)(managementObject.Properties["HotSwappable"]?.Value ?? default(bool));
-                InstallDate = ManagementDateTimeConverter.ToDateTime(managementObject.Properties["InstallDate"]?.Value as string ?? "00010102000000.000000+060");
-                Manufacturer = (string)(managementObject.Properties["Manufacturer"]?.Value);
-                Model = (string)(managementObject.Properties["Model"]?.Value);
-                Name = (string)(managementObject.Properties["Name"]?.Value);
-                OtherIdentifyingInfo = (string)(managementObject.Properties["OtherIdentifyingInfo"]?.Value);
-                PartNumber = (string)(managementObject.Properties["PartNumber"]?.Value);
-                PoweredOn = (bool)(managementObject.Properties["PoweredOn"]?.Value ?? default(bool));
-                Product = (string)(managementObject.Properties["Product"]?.Value);
-                Removable = (bool)(managementObject.Properties["Removable"]?.Value ?? default(bool));
-                Replaceable = (bool)(managementObject.Properties["Replaceable"]?.Value ?? default(bool));
-                RequirementsDescription = (string)(managementObject.Properties["RequirementsDescription"]?.Value);
-                RequiresDaughterBoard = (bool)(managementObject.Properties["RequiresDaughterBoard"]?.Value ?? default(bool));
-                SerialNumber = (string)(managementObject.Properties["SerialNumber"]?.Value);
-                Sku = (string)(managementObject.Properties["SKU"]?.Value);
-                SlotLayout = (string)(managementObject.Properties["SlotLayout"]?.Value);
-                SpecialRequirements = (bool)(managementObject.Properties["SpecialRequirements"]?.Value ?? default(bool));
-                Status = (string)(managementObject.Properties["Status"]?.Value);
-                Tag = (string)(managementObject.Properties["Tag"]?.Value);
-                Version = (string)(managementObject.Properties["Version"]?.Value);
-                Weight = (float)(managementObject.Properties["Weight"]?.Value ?? default(float));
-                Width = (float)(managementObject.Properties["Width"]?.Value ?? default(float));
+                ManagementObjectSearcher searcher =
+                        new ManagementObjectSearcher("root\\CIMV2",
+                       "SELECT * FROM Win32_BaseBoard");
+                foreach (ManagementObject managementObject in searcher.Get())
+                {
+                    Caption = (string)(managementObject.Properties["Caption"]?.Value);
+                    ConfigOptions = (string[])(managementObject.Properties["ConfigOptions"]?.Value ?? new string[0]);
+                    CreationClassName = (string)(managementObject.Properties["CreationClassName"]?.Value);
+                    Depth = (float)(managementObject.Properties["Depth"]?.Value ?? default(float));
+                    Description = (string)(managementObject.Properties["Description"]?.Value);
+                    Height = (float)(managementObject.Properties["Height"]?.Value ?? default(float));
+                    HostingBoard = (bool)(managementObject.Properties["HostingBoard"]?.Value ?? default(bool));
+                    HotSwappable = (bool)(managementObject.Properties["HotSwappable"]?.Value ?? default(bool));
+                    InstallDate = ManagementDateTimeConverter.ToDateTime(managementObject.Properties["InstallDate"]?.Value as string ?? "00010102000000.000000+060");
+                    Manufacturer = (string)(managementObject.Properties["Manufacturer"]?.Value);
+                    Model = (string)(managementObject.Properties["Model"]?.Value);
+                    Name = (string)(managementObject.Properties["Name"]?.Value);
+                    OtherIdentifyingInfo = (string)(managementObject.Properties["OtherIdentifyingInfo"]?.Value);
+                    PartNumber = (string)(managementObject.Properties["PartNumber"]?.Value);
+                    PoweredOn = (bool)(managementObject.Properties["PoweredOn"]?.Value ?? default(bool));
+                    Product = (string)(managementObject.Properties["Product"]?.Value);
+                    Removable = (bool)(managementObject.Properties["Removable"]?.Value ?? default(bool));
+                    Replaceable = (bool)(managementObject.Properties["Replaceable"]?.Value ?? default(bool));
+                    RequirementsDescription = (string)(managementObject.Properties["RequirementsDescription"]?.Value);
+                    RequiresDaughterBoard = (bool)(managementObject.Properties["RequiresDaughterBoard"]?.Value ?? default(bool));
+                    SerialNumber = (string)(managementObject.Properties["SerialNumber"]?.Value);
+                    Sku = (string)(managementObject.Properties["SKU"]?.Value);
+                    SlotLayout = (string)(managementObject.Properties["SlotLayout"]?.Value);
+                    SpecialRequirements = (bool)(managementObject.Properties["SpecialRequirements"]?.Value ?? default(bool));
+                    Status = (string)(managementObject.Properties["Status"]?.Value);
+                    Tag = (string)(managementObject.Properties["Tag"]?.Value);
+                    Version = (string)(managementObject.Properties["Version"]?.Value);
+                    Weight = (float)(managementObject.Properties["Weight"]?.Value ?? default(float));
+                    Width = (float)(managementObject.Properties["Width"]?.Value ?? default(float));
 
 
 
+                }
             }
+            catch { }
 
 
         }

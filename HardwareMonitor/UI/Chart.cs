@@ -27,11 +27,11 @@ namespace HardwareMonitor.UI
         {
             InitializeComponent();
         }
+
         private void GetCPUCounter()
         {
             CPU_counter = Accelerator.perfCPUCounter;
-            //var cpuPerfCounter = new PerformanceCounter("Processor Information", "% Processor Time", "_Total");
-
+            
             while (true)
             {
                 cpuArray[cpuArray.Length - 1] = Math.Round(CPU_counter.NextValue(), 0);
@@ -56,6 +56,7 @@ namespace HardwareMonitor.UI
                 chrt_cpu.Series["CPU"].Points.AddY(cpuArray[i]);
             }
         }
+
 
         private void GetRAMCounter()
         {
